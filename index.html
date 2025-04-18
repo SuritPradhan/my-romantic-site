@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Love Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <audio id="background-audio" loop>
+    <source src="img/BRomentic.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    document.body.addEventListener('click', function () {
+      const music = document.getElementById('background-audio');
+      if (music.paused) {
+        music.play();
+      }
+    });
+  </script>
+  
+  <div class="emoji-container"></div>
+
+  
+  <div class="center-box">
+    <h1 style="font-family: 'Arial', sans-serif; color: #ff69b4; text-shadow: 2px 2px 4px #000000;">WELCOME TO OUR GALLERY</h1>
+    <p>Every moment with you is memorable</p>
+    <div class="button-row">
+      <button onclick="changeBackground()">Change Colour</button>
+      <button onclick="window.location.href='gallery.html'">Enter Our Love Story</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

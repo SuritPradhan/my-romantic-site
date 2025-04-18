@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>little princess ❤️ Babai </title>
+  <style>
+ body {
+  background: linear-gradient(45deg, #ff69b4, #ff1493, #8a2be2, #ff4500);
+  background-size: 400% 400%;
+  animation: gradientBG 6s ease infinite;
+  font-family: 'Cursive', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}.slider-container {
+  perspective: 1000px;
+  position: relative;
+}
+
+.slider {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 1s;
+  top: 40px;
+}
+
+.slide {
+  position: absolute;
+  width: 150px;
+  height: 60%;
+  transform: rotateY(calc(var(--i) * 36deg)) translateZ(500px);
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.controls {
+  margin-top: 60px;
+  position: relative;
+  top: 30px; 
+}
+
+
+.controls button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
+  background: linear-gradient(135deg, #f60968, #df74e8); 
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+}
+
+
+  </style>
+</head>
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="img/romantic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide" style="--i:0"><img src="img/1st-love.jpg" /></div>
+      <div class="slide" style="--i:1"><img src="img/2nd-love.jpg" /></div>
+      <div class="slide" style="--i:2"><img src="img/3rd-love.jpg" /></div>
+      <div class="slide" style="--i:3"><img src="img/4rd-love.jpg" /></div>
+      <div class="slide" style="--i:4"><img src="img/5th-love.jpg" /></div>
+      <div class="slide" style="--i:5"><img src="img/6th-love.jpg" /></div>
+      <div class="slide" style="--i:6"><img src="img/7th-love.jpg" /></div>
+      <div class="slide" style="--i:7"><img src="img/8th-love.jpg" /></div>
+      <div class="slide" style="--i:8"><img src="img/9th-love.jpg" /></div>
+      <div class="slide" style="--i:9"><img src="img/10th-love.jpg" /></div>
+    </div>
+  </div>  <div class="controls">
+    <button onclick="rotateSlider(-1)">Previous</button>
+    <button onclick="toggleAutoRotate()" id="toggleBtn">Pause</button>
+    <button onclick="rotateSlider(1)">Next</button>
+  </div>  <script>
+    const slider = document.getElementById('slider');
+    let angle = 0;
+    let autoRotate = true;
+    let interval;
+
+    function rotateSlider(direction) {
+      angle += direction * 36;
+      slider.style.transform = `rotateY(${angle}deg)`;
+    }
+
+    function startAutoRotate() {
+      interval = setInterval(() => rotateSlider(1), 1000);
+    }
+
+    function stopAutoRotate() {
+      clearInterval(interval);
+    }
+
+    function toggleAutoRotate() {
+      autoRotate = !autoRotate;
+      const toggleBtn = document.getElementById('toggleBtn');
+
+      if (autoRotate) {
+        startAutoRotate();
+        toggleBtn.textContent = 'Pause';
+      } else {
+        stopAutoRotate();
+        toggleBtn.textContent = 'Play';
+      }
+    }
+
+    window.addEventListener('load', () => {
+      startAutoRotate();
+    });
+  </script></body>
+</html>

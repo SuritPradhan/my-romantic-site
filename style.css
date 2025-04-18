@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffdee9;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+  }
+  
+  .emoji-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s linear infinite;
+    opacity: 0.7;
+  }
+  
+  @keyframes float {
+    0% {
+      bottom: -50px;
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 100vh;
+      opacity: 0;
+    }
+  }
+  
+  .center-box {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 0 35px rgba(233, 62, 173, 0.896);
+    width: 50%;
+    max-width: 400px; 
+    height: 400px; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .center-box h1 {
+    font-size: 2em;
+    color: #ff4081;
+    top: 20pxs;
+  }
+  
+  .center-box p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #2ad1e8;
+  }
+  
+  .button-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background: #ff4081;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #e91e63;
+  }
+  
